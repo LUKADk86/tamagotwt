@@ -2,7 +2,7 @@
 
 
 
- $letweet=$_POST['tweet'];
+ $letweet=isset($_POST['tweet']);
 $mots = explode(" ", $letweet);
 
 
@@ -18,6 +18,7 @@ fclose($fichier);
 if($compteur==3){
 $text = file_get_contents("mots.txt");
 echo $text;
+
 }
 
  ?>

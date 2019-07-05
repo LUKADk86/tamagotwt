@@ -16,31 +16,20 @@ $url = "https://api.twitter.com/1.1/statuses/user_timeline.json";
 $url2= "https://api.twitter.com/1.1/statuses/update.json";
 $requestMethod = "GET";
 $requestMethod2= "POST";
+if (isset($_POST["tweet"])){
 $postfield= ["status"=>"$_POST[tweet]"];
+
 $getfield = '?screen_name=lalalan48806413&count=5';
 $twitter = new TwitterAPIExchange($settings);
 
 
-echo $twitter->buildOauth($url2, $requestMethod2)            /*POST   TWEET*/
+$twitter->buildOauth($url2, $requestMethod2)            /*POST   TWEET*/
              ->setPostfields($postfield)
              ->performRequest();
 
-
-
-$tabreturn =   json_decode(                                             /*GET TWEET*/
-                $twitter->setGetfield($getfield)
-                ->buildOauth($url, $requestMethod)
-                ->performRequest(), $assoc=true);
-
-if (array_key_exists("error",  $tabreturn))                             /*MESSAGE DERREUR*/
-{
-echo "Twitter issue is real, error message :".$tabreturn["errors"];
-exit();
 }
-/*METTRE EN FORME LE JSON*/
-echo "<pre>";
-/*AFFICHER TOUT LE TABLEAU*/
-print_r($tabreturn);
+
+
 
 
 

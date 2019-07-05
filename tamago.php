@@ -19,7 +19,9 @@ if(($_POST)AND($compteur<3)){
   fseek($monfichier1, 0);
   fputs($monfichier1, $newvalue);
 }else {
-
+  $fichier = fopen('mots.txt', 'r+');
+  ftruncate($fichier, 0);
+  fclose($fichier);
   $largeur=200;
   $hauteur=150;
   $compteur=0;
@@ -44,10 +46,11 @@ imagecopyresampled($destination, $source, 0, 0, 0, 0, $largeur_destination, $hau
 
 ?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
   <head>
     <meta charset="utf-8">
     <link href="tamago.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="CSS/modal.css">
     <title>TAMAGOTWEET</title>
   </head>
   <header>
@@ -61,12 +64,24 @@ imagecopyresampled($destination, $source, 0, 0, 0, 0, $largeur_destination, $hau
           imagepng($destination, "mini-monstre.png");
           intval($compteur);
           require_once('mot.php');
+          require_once('StructurePHP.php');
            ?>
            <img src="mini-monstre.png" />
 
           <input type="submit">
         </form>
-
+        <!--MODAL-->
+                <button type="button" id="messagebtn">Plop</button>
+                <div id="alertmessage" class="modal">
+                  <div class="modalcontent">
+                    <span id="close">&times;</span>
+                    <p>Je deviens de plus en plus énorme !!</p>
+                    <p>Arrète tout de suite !</p>
+                    <img src="assets/vomito1.png" alt="malade">
+                  </div>
+                </div>
+        <!--SCRIPT DU MODAL-->
+              <script src="JS/modal.js"></script>
 
     </div>
   </body>
