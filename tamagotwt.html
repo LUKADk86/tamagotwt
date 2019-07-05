@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="tamago.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="CSS/modal.css">
+    <title>TAMAGOTWEET</title>
+  </head>
+  <header>
+    <h1>TAMAGOTWEET</h1>
+  </header>
+  <body>
+    <div class="container">
+<!--FORMULAIRE POUR LES POST-->
+        <form action="StructurePHP.php"  method="post">
+          <input class="tweet" type="text" name="tweet" maxlength="140"><br>
+          <input type="submit">
+        </form>
+<!--MODAL-->
+        <button type="button" id="messagebtn">Plop</button>
+        <div id="alertmessage" class="modal">
+          <div class="modalcontent">
+            <span id="close">&times;</span>
+            <p>Je deviens de plus en plus énorme !!</p>
+            <p>Arrète tout de suite !</p>
+            <img src="assets/vomito1.png" alt="malade">
+          </div>
+        </div>
+<!--SCRIPT DU MODAL-->
+      <script src="JS/modal.js"></script>
+    </div>
+  </body>
+</html>
