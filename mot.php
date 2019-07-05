@@ -5,14 +5,19 @@
  $letweet=$_POST['tweet'];
 $mots = explode(" ", $letweet);
 
+
+echo $compteur;
+
 $fichier= fopen('mots.txt', 'r+');
 $lu = fgets($fichier);
-fputs($fichier, $mots[0].' ');
+if(isset($mots[$compteur])){
+fputs($fichier, $mots[$compteur].' ');
  fgets($fichier);
 fclose($fichier);
-/*if(count(tableau de tweet)==10){
+}
+if($compteur==3){
 $text = file_get_contents("mots.txt");
 echo $text;
-}*/
+}
 
  ?>
