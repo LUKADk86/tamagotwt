@@ -1,34 +1,38 @@
 <?php
-$monfichier1 = fopen('image.txt', 'r+'); /*Ouvre le fichier image pour écrire dedans*/
+
+$monfichier1 = fopen('image.txt', 'r+');
+
 $tab = explode(" ", fgets($monfichier1));
 $largeur = intval($tab[0]);
 $hauteur= intval($tab[1]);
 $array=[];
-fgets($monfichier1); /*On lit ce fichier*/
-$compteur=intval($tab[2]);; /*on place un compteur à la 3eme place du tableau*/
+fgets($monfichier1);
+$compteur=intval($tab[2]);;
 if(($_POST)AND($compteur<3)){
   intval($compteur);
   $compteur++;
+
   $largeur=$largeur+10;
   $hauteur=$hauteur+10;
+
   $array = array(strval($largeur),strval($hauteur),strval($compteur));
   $newvalue = implode(" ", $array);
   fseek($monfichier1, 0);
   fputs($monfichier1, $newvalue);
+  fclose($monfichier1);
 }else {
-  $fichier = fopen('mots.txt', 'r+');
-  ftruncate($fichier, 0);
-  fclose($fichier);
   $largeur=200;
   $hauteur=150;
   $compteur=0;
   $monfichier1 = fopen('image.txt', 'r+');
   fseek($monfichier1, 0);
   fputs($monfichier1, "200 150 0");
+  fclose($monfichier1);
 }
-fclose($monfichier1);
+
 $source = imagecreatefrompng("monstre.png"); // La photo est la source
 $destination = imagecreatetruecolor($largeur, $hauteur); // On crée la miniature vide
+
 // Les fonctions imagesx et imagesy renvoient la largeur et la hauteur d'une image
 $largeur_source = imagesx($source);
 $hauteur_source = imagesy($source);
@@ -36,7 +40,10 @@ $largeur_destination = imagesx($destination);
 $hauteur_destination = imagesy($destination);
 // On crée la miniature
 imagecopyresampled($destination, $source, 0, 0, 0, 0, $largeur_destination, $hauteur_destination, $largeur_source, $hauteur_source);
+
 // On enregistre la miniature sous le nom "mini_couchersoleil.jpg"
+
+
 ?>
 <!DOCTYPE html>
 <html>
