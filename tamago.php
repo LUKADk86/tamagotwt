@@ -1,19 +1,16 @@
 <?php
-
-$monfichier1 = fopen('image.txt', 'r+');
-
+$monfichier1 = fopen('image.txt', 'r+'); /*Ouvre le fichier image pour écrire dedans*/
 $tab = explode(" ", fgets($monfichier1));
 $largeur = intval($tab[0]);
 $hauteur= intval($tab[1]);
 $array=[];
-fgets($monfichier1);
-$compteur=intval($tab[2]);;
+fgets($monfichier1); /*On lit ce fichier*/
+$compteur=intval($tab[2]);; /*on place un compteur à la 3eme place du tableau*/
 if(($_POST)AND($compteur<3)){
   intval($compteur);
   $compteur++;
   $largeur=$largeur+10;
   $hauteur=$hauteur+10;
-
   $array = array(strval($largeur),strval($hauteur),strval($compteur));
   $newvalue = implode(" ", $array);
   fseek($monfichier1, 0);
@@ -32,7 +29,6 @@ if(($_POST)AND($compteur<3)){
 fclose($monfichier1);
 $source = imagecreatefrompng("monstre.png"); // La photo est la source
 $destination = imagecreatetruecolor($largeur, $hauteur); // On crée la miniature vide
-
 // Les fonctions imagesx et imagesy renvoient la largeur et la hauteur d'une image
 $largeur_source = imagesx($source);
 $hauteur_source = imagesy($source);
@@ -40,10 +36,7 @@ $largeur_destination = imagesx($destination);
 $hauteur_destination = imagesy($destination);
 // On crée la miniature
 imagecopyresampled($destination, $source, 0, 0, 0, 0, $largeur_destination, $hauteur_destination, $largeur_source, $hauteur_source);
-
 // On enregistre la miniature sous le nom "mini_couchersoleil.jpg"
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -68,10 +61,9 @@ imagecopyresampled($destination, $source, 0, 0, 0, 0, $largeur_destination, $hau
            ?>
            <img src="mini-monstre.png" />
 
-          <input type="submit">
+          <input type="submit" id="subbtn">
         </form>
         <!--MODAL-->
-                <button type="button" id="messagebtn">Plop</button>
                 <div id="alertmessage" class="modal">
                   <div class="modalcontent">
                     <span id="close">&times;</span>
@@ -81,6 +73,9 @@ imagecopyresampled($destination, $source, 0, 0, 0, 0, $largeur_destination, $hau
                   </div>
                 </div>
         <!--SCRIPT DU MODAL-->
+              <script>
+                var compteurs = <?php echo($compteur); ?>
+              </script>
               <script src="JS/modal.js"></script>
 
     </div>
