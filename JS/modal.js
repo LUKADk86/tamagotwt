@@ -1,17 +1,15 @@
 /*fonction du modal pour sa fermeture*/
-var messagebtn= document.getElementById("messagebtn");
+var subbtn= document.getElementById("subbtn");
 var modal= document.getElementById("alertmessage");
 var span = document.getElementById("close");
-var i=0;
 
-messagebtn.onclick=function(){
-
-i++;
-  console.log(i);
-  if(i==3)
+subbtn.onclick=function(){
+  console.log(compteurs);
+  compteurs++;
+  if(compteurs==2)
   {
     modal.style.display="block";
-    i=0;
+    compteurs=0;
   }
 }
 
