@@ -1,0 +1,49 @@
+body
+{
+height: 150px;
+}
+
+.nav
+{
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: #d6d7d9;
+font-family: sans-serif;
+}
+
+
+
+.titre
+{
+padding: 0 0 0 15%;
+}
+
+.reseau img
+{
+height: 50%;
+width: 50%;
+}
+
+.titre
+{
+
+}
+
+.container{
+  background: url("container.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  height: 500%;
+
+}
+.tweet{
+  width: 400px;
+  height: 350px;
+  background:url('twitter.png') no-repeat left top;
+  border-radius: 20px;
+  border: 5px solid blue;
+  font-weight: bold;
+  font-size: 1.4em;
+}

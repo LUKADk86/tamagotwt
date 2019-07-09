@@ -42,16 +42,19 @@ imagecopyresampled($destination, $source, 0, 0, 0, 0, $largeur_destination, $hau
 <html>
   <head>
     <meta charset="utf-8">
-    <link href="tamago.css" rel="stylesheet">
+    <link href="CSS/tamago.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="CSS/modal.css">
     <title>TAMAGOTWEET</title>
   </head>
-  <header>
-    <h1>TAMAGOTWEET</h1>
+  <header class ="backgroundheader">
+    <div class="nav">
+      <h1 class="titre">TAMAGOTWEET</h1>
+      <span class="reseau"> <img src="CSS/reseau-social-twitter.svg"/></span>
+    </div>
   </header>
   <body>
     <div class="container">
-        <form action="tamago.php"  method="post">
+        <form action="tamago.php"  method="post" class="formulaire">
           <input class="tweet" type="text" name="tweet" maxlength="140" required><br>
           <?php
           imagepng($destination, "mini-monstre.png");
@@ -64,20 +67,19 @@ imagecopyresampled($destination, $source, 0, 0, 0, 0, $largeur_destination, $hau
           <input type="submit" id="subbtn">
         </form>
         <!--MODAL-->
-                <div id="alertmessage" class="modal">
-                  <div class="modalcontent">
-                    <span id="close">&times;</span>
-                    <p>Je deviens de plus en plus énorme !!</p>
-                    <p>Arrète tout de suite !</p>
-                    <img src="assets/vomito1.png" alt="malade">
-                  </div>
+              <div id="alertmessage" class="modal">
+                <div class="modalcontent">
+                  <span id="close">&times;</span>
+                  <p>Je deviens de plus en plus énorme !!</p>
+                  <p>Arrète tout de suite !</p>
+                  <img src="assets/vomito1.png" alt="malade">
                 </div>
+              </div>
         <!--SCRIPT DU MODAL-->
-              <script>
-                var compteurs = <?php echo($compteur); ?>
-              </script>
-              <script src="JS/modal.js"></script>
-
+            <script>
+              var compteurs = <?php echo($compteur); ?>
+            </script>
+            <script src="JS/modal.js"></script>
     </div>
   </body>
 </html>
