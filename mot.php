@@ -5,7 +5,7 @@ if(isset($_POST['tweet'])){
  $letweet=$_POST['tweet'];
 
 $mots = explode(" ", $letweet);
-
+echo $compteur;
 
 $fichier= fopen('mots.txt', 'r+');
 fgets($fichier);

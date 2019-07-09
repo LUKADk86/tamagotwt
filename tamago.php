@@ -66,8 +66,9 @@ imagecopyresampled($destination, $source, 0, 0, 0, 0, $largeur_destination, $hau
           <?php
           imagepng($destination, "mini-monstre.png");
           intval($compteur);
-          require_once('mot.php');
           require_once('StructurePHP.php');
+          require_once('mot.php');
+
            ?>
            <img src="mini-monstre.png" />
 
